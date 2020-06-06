@@ -18,10 +18,23 @@ fetchMyIP((error, ip) => {
 });
 
 fetchCoordsByIP('162.157.214.14', (error, coords) => {
-    if (error) {
-        console.log("Fail, man! Where you at?", error);
-        return;
-      }
+  if (error) {
+    console.log("Fail, man! Where you at?", error);
+    return;
+  }
       
-      console.log("It worked! Returned coords is: ", coords);
-    });
+  console.log("It worked! Returned coords is: ", coords);
+});
+
+
+const { fetchISSFlyOverTimes } = require('./iss');
+
+    
+fetchISSFlyOverTimes({ latitude: '51.13870', longitude: '-114.20150' }, (error, passTimes) => {
+  if (error) {
+    console.log("No funciona! ", error);
+    return;
+  }
+  console.log("Funciona! Las horas son: ", passTimes);
+
+});
